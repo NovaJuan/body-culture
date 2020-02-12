@@ -8,7 +8,7 @@ collection.json
 
 docgen.exe
 
-**/src/public
+**/src/public/*
 
 *.env
 
