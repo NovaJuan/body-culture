@@ -1,7 +1,15 @@
 node_modules/
+
 _data
+
 seeder.js
+
 collection.json
+
 docgen.exe
+
 **/src/public
+
 *.env
+
+**/config
