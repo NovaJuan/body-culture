@@ -3,6 +3,6 @@ _data
 seeder.js
 collection.json
 docgen.exe
-temp/
+public/temp/
 public/index.html
 *.env
