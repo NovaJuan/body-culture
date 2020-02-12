@@ -3,3 +3,5 @@ _data
 seeder
 collection.json
 docgen.exe
+temp
+config/config.env
