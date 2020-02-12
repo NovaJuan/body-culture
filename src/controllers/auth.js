@@ -151,7 +151,10 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
 	const recoveryToken = await user.createRecoveryToken();
 
-	const recoveryURL = `${req.protocol}://${req.headers.host}/api/v1/auth/resetpassword/${recoveryToken}`;
+	const recoveryURL =
+		process.env.NODE_ENV === 'production'
+			? `${req.protocol}://${req.headers.host}/resetpassword/${recoveryToken}`
+			: `${req.protocol}://${req.headers.host}/api/v1/auth/resetpassword/${recoveryToken}`;
 
 	const mail = {
 		to: req.body.email,
@@ -260,7 +263,10 @@ const sendTokenResponse = (user, status, res, req) => {
 const accountBlocked = async (req, res, next, user) => {
 	const recoveryToken = await user.createRecoveryToken();
 
-	const recoveryURL = `${req.protocol}://${req.headers.host}/api/v1/auth/resetpassword/${recoveryToken}`;
+	const recoveryURL =
+		process.env.NODE_ENV === 'production'
+			? `${req.protocol}://${req.headers.host}/resetpassword/${recoveryToken}`
+			: `${req.protocol}://${req.headers.host}/api/v1/auth/resetpassword/${recoveryToken}`;
 
 	const mail = {
 		to: req.body.email,
