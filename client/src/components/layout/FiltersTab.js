@@ -8,7 +8,8 @@ const FiltersTab = ({ getProducts }) => {
 		to: '',
 		category: '',
 		section: '',
-		sex: ''
+		sex: '',
+		search: ''
 	});
 
 	const onChange = e => {

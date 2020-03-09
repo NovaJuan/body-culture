@@ -67,9 +67,8 @@ a {
 		background: none;
 		border: none;
 		width: 2.5rem;
-		padding-right: 1rem;
+		padding-right: 2rem;
 		box-sizing: initial;
-		margin-right: 1rem;
 		text-align: left;
 
 		img {
@@ -180,6 +179,8 @@ a {
 	.nav-link {
 		display: inline-block;
 		margin-left: 0.5rem;
+		background: none;
+		border: none;
 
 		img {
 			padding: 0.2rem 0.5rem;
@@ -351,9 +352,9 @@ a {
 		#close-sidebar {
 			background: none;
 			border: none;
-			width: 2.5rem;
-			padding-right: 1rem;
-			box-sizing: initial;
+			width: 3.5rem;
+			box-sizing: content-box;
+			display: block;
 			text-align: left;
 
 			img {
@@ -412,6 +413,8 @@ a {
 	align-items: center;
 
 	#open-filters {
+		border: none;
+		cursor: pointer;
 		text-decoration: none;
 		background-color: $primaryColor;
 		color: #ffffff;
@@ -635,6 +638,7 @@ a {
 
 .pagination {
 	.pagination-btn {
+		background: none;
 		display: inline-block;
 		padding: 0.7rem 1.3rem;
 		border: 0.5px solid #707070;

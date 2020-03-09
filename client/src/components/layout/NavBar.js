@@ -37,9 +37,9 @@ const NavBar = ({ logout, user, history }) => {
 				<h3 className='brand'>Body Culture</h3>
 
 				<div className='nav-links'>
-					<a href='#!' className='nav-link' id='user-links-btn'>
+					<button className='nav-link' id='user-links-btn'>
 						<img src='/icons/user.svg' alt='' />
-					</a>
+					</button>
 					<Link to='/cart' className='nav-link'>
 						<img src='/icons/shopping-bag.svg' alt='' />
 					</Link>

@@ -40,19 +40,21 @@ const ProductsList = ({
 
 	if (!loading && products !== null) {
 		pageBtns = (
-			<p className=' pagination'>
-				{pagination.prev && (
-					<a href='#!' onClick={prevPage} className='pagination-btn'>
-						Prev
-					</a>
-				)}
-				<strong>{pagination.current.page}</strong>
-				{pagination.next && (
-					<a href='#!' onClick={nextPage} className='pagination-btn'>
-						Next
-					</a>
-				)}
-			</p>
+			<Fragment>
+				<p className=' pagination'>
+					{pagination.prev && (
+						<button onClick={prevPage} className='pagination-btn'>
+							Prev
+						</button>
+					)}
+					<strong>{pagination.current.page}</strong>
+					{pagination.next && (
+						<button onClick={nextPage} className='pagination-btn'>
+							Next
+						</button>
+					)}
+				</p>
+			</Fragment>
 		);
 
 		content =
@@ -91,9 +93,11 @@ const ProductsList = ({
 							<div className='products-area'>
 								<span className='top-of-products'>
 									{pageBtns}
-									<a href='#!' id='open-filters'>
-										<img src='icons/arrow-left.svg' alt='' /> Filters
-									</a>
+									{!loading && products !== null ? (
+										<button id='open-filters'>
+											<img src='icons/arrow-left.svg' alt='' /> Filters
+										</button>
+									) : null}
 								</span>
 								{content}
 							</div>
