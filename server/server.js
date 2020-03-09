@@ -11,6 +11,7 @@ const fileupload = require('express-fileupload');
 const rateLimiter = require('express-rate-limit');
 const errorHandler = require('./middlewares/errorHandler');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 // Config env vars
 dotenv.config({
@@ -48,6 +49,9 @@ app.use(
 
 // Parsing JSONs
 app.use(express.json());
+
+// Compress all responses
+app.use(compression());
 
 // Parsing Body
 app.use(
