@@ -1278,7 +1278,7 @@ a {
     display: block;
   }
   #filters,
-  a#open-filters {
+  button#open-filters {
     display: none !important;
   }
   .products .products-grid {
