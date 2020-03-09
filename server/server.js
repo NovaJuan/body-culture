@@ -74,6 +74,8 @@ app.use(cookieParser());
 /*****END OF MIDDLEWARES*****/
 
 /*****ROUTES*****/
+//Server Static files
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Setting API routes
 app.use('/api/v1/products', require('./routes/products'));
@@ -86,36 +88,17 @@ app.use('/api/v1/order', require('./routes/orders'));
 
 // Error handler
 app.use(errorHandler);
-if (process.env.NODE_ENV !== 'production') {
-	//Server Static files
-	app.use('/public', express.static(path.join(__dirname, 'public')));
 
-	// Setting Admin routes;
-	app.use('/admin/*', express.static(path.join(__dirname, '../admin/build')));
+// Setting Admin routes;
+app.use('/admin/*', express.static(path.join(__dirname, '../admin/build')));
 
-	// Client Static files
-	app.use(express.static(path.join(__dirname, '../client/build')));
+// Client Static files
+app.use(express.static(path.join(__dirname, '../client/build')));
 
-	// Default Route
-	app.get('/*', function(req, res) {
-		res.sendFile(path.join(__dirname, '../client/build/index.html'));
-	});
-} else {
-	//Server Static files
-	app.use('/public', express.static(path.join(__dirname, 'public')));
-
-	// Setting Admin routes;
-	app.use('/admin/*', express.static(path.join(__dirname, '../admin/build')));
-
-	// Client Static files
-	app.use(express.static(path.join(__dirname, '../client/build')));
-
-	// Default Route
-	app.get('/*', function(req, res) {
-		console.log(__dirname);
-		res.sendFile(path.join(__dirname, '../client/build/index.html'));
-	});
-}
+// Default Route
+app.get('/*', function(req, res) {
+	res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 // Setting Port
 const PORT = process.env.PORT || 5000;
