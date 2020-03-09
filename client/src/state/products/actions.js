@@ -7,7 +7,7 @@ export const getProducts = (
 ) => async dispatch => {
 	dispatch({ type: 'PRODUCTS_LOADING' });
 
-	let query = url + `&page=${page}`;
+	let query = url + `&page=${page}&select=name,price,discountPrice,id,photo_id`;
 
 	try {
 		const { data } = await axios.get(query);
