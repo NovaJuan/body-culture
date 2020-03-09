@@ -74,7 +74,7 @@ app.use(cookieParser());
 /*****END OF MIDDLEWARES*****/
 
 /*****ROUTES*****/
-//Static files
+//Server Static files
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Setting API routes
@@ -90,10 +90,15 @@ app.use('/api/v1/order', require('./routes/orders'));
 app.use(errorHandler);
 
 // Setting Admin routes;
-app.use('/admin/*', express.static(path.join(__dirname, 'admin/build')));
+app.use('/admin/*', express.static(path.join(__dirname, '../admin/build')));
 
-// Setting Client routes;
-app.use('/*', express.static(path.join(__dirname, 'client/build')));
+// Client Static files
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+// Default Route
+app.get('/*', function(req, res) {
+	res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 // Setting Port
 const PORT = process.env.PORT || 5000;

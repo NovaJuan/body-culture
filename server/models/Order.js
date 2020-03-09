@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
+const shortId = require('shortid');
+
+shortId.characters(
+	'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$&'
+);
 
 const OrderSchema = new mongoose.Schema({
-	id: {
-		type: String,
-		required: true,
-		maxlength: 9999999,
-		minLength: 0,
-		unique: true
-	},
+	id: { type: String, unique: true, default: shortId.generate },
 	items: {
 		type: Array,
 		required: [true, 'Please enter items in order']

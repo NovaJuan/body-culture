@@ -297,7 +297,7 @@ const accountBlocked = async (req, res, next, user) => {
 exports.getOrder = asyncHandler(async (req, res, next) => {
 	const { id } = req.params;
 
-	const order = await Order.findOne({ _id: id, user: req.user._id });
+	const order = await Order.findOne({ id: id, user: req.user._id });
 
 	if (!order) {
 		return next(new ErrorResponse('No order found.', 401));

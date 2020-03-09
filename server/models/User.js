@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const geocoder = require('../utils/geocoder');
 const crypto = require('crypto');
 
 const UserSchema = new mongoose.Schema(
@@ -117,7 +116,7 @@ UserSchema.virtual('orders', {
 	justOne: false,
 	options: {
 		sort: '-created_at',
-		select: 'created_at'
+		select: 'created_at id orderStatus'
 	}
 });
 

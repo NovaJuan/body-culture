@@ -117,7 +117,7 @@ CartSchema.methods.getCart = async function() {
 		_id: {
 			$in: itemsIds
 		}
-	}).select('name price discountPrice discountPercent photo');
+	}).select('name price discountPrice discountPercent photo_id');
 
 	const cart = {
 		items: [],

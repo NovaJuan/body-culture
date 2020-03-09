@@ -11,3 +11,5 @@ docgen.exe
 *.env
 
 **/config
+
+admin/

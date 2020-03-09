@@ -29,7 +29,7 @@ const advancedResults = (model, populate) =>
 
 		//create operators (gt,gte,lt...)
 		queryStr = queryStr.replace(
-			/\b(gt|gte|lt|lte|in|regex|options|or|and)\b/g,
+			/\b(gt|gte|lt|lte|in|regex|options|or)\b/g,
 			match => `$${match}`
 		);
 

@@ -4,8 +4,8 @@
   "description": "Body culture E-Shop api with Node.js and MongoDB",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node src/server.js",
-    "dev": "cross-env NODE_ENV=development nodemon src/server.js"
+    "start": "cross-env NODE_ENV=production node server/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon server/server.js"
   },
   "author": "Juan Romero",
   "license": "ISC",

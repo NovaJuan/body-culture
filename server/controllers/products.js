@@ -58,7 +58,7 @@ exports.createProduct = asyncHandler(async (req, res, next) => {
 
 	//formatting price
 	if (req.body.price) {
-		req.body.price = req.body.price * 100;
+		req.body.price = Math.ceil(req.body.price * 100);
 	}
 
 	let product = new Product(req.body);

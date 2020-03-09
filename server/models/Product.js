@@ -9,6 +9,10 @@ cloudinary.config({
 	api_secret: process.env.CLOUDINARY_SECRET
 });
 
+shortId.characters(
+	'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$&'
+);
+
 const ProductSchema = new mongoose.Schema({
 	id: { type: String, unique: true, default: shortId.generate },
 	name: {
@@ -40,11 +44,6 @@ const ProductSchema = new mongoose.Schema({
 		min: 0,
 		max: 5
 	},
-	// category:{
-	//   type:mongoose.Schema.ObjectId,
-	//   ref:'Category',
-	//   required:[true,'Please select a category']
-	// },
 	category: {
 		type: String,
 		enum: {
@@ -79,18 +78,6 @@ const ProductSchema = new mongoose.Schema({
 		required: [true, 'Please enter a section']
 	},
 	variations: Object,
-	photo: {
-		type: String,
-		default: 'no-photo.jpg'
-	},
-	thumbnail: {
-		type: String,
-		default: 'no-photo.jpg'
-	},
-	card: {
-		type: String,
-		default: 'no-photo.jpg'
-	},
 	photo_id: {
 		type: String,
 		default: 'no-photo.jpg'
